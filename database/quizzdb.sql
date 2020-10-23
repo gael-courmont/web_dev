@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 23, 2020 at 06:12 PM
+-- Generation Time: Oct 23, 2020 at 06:46 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -100,8 +100,8 @@ CREATE TABLE IF NOT EXISTS `quizz` (
 --
 
 INSERT INTO `quizz` (`quizz_id`, `quizz_name`) VALUES
-(1, 'capitale'),
-(2, 'musique');
+(1, 'capital'),
+(2, 'music');
 
 -- --------------------------------------------------------
 
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `user_birthdate` datetime DEFAULT NULL,
   `user_password` varchar(255) NOT NULL COMMENT 'User Password',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
@@ -128,7 +128,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`user_id`, `user_last_name`, `user_first_name`, `user_adress`, `user_phone`, `user_birthdate`, `user_password`) VALUES
 (1, 'courmont', 'gael', 'rue de douai', '0781', NULL, 'les3freres'),
 (10, 'gael', 'couront', NULL, NULL, NULL, 'les3freres'),
-(11, 'gael', 'Courmont', NULL, NULL, NULL, 'les3');
+(11, 'gael', 'Courmont', NULL, NULL, NULL, 'les3'),
+(12, 'Doe', 'John', NULL, NULL, NULL, '***');
 
 -- --------------------------------------------------------
 
