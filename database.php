@@ -7,15 +7,21 @@
     function getQuizzByName($QuizzName){
         $params=array('QuizzName' => $QuizzName);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         $query ='select quizz_id,quizz_name from quizz where quizz.quizz_name= :QuizzName';
         return executeQuery($query,$params);
     }
 
 =======
+=======
+>>>>>>> Stashed changes
         $query ='select * from quizz where quizz.Quizz_name= :QuizzName';
         return executeQuery($query,$params);
     }
     
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     function getQuestionByQuizzId($QuizzId){
         $params = array('quizzID' => $QuizzId);
@@ -36,9 +42,15 @@
     }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     function getAnswerByTextAndQuestionID($AnswerText,$questionID){
         $params=array('answer_text' => $AnswerText,'answer_question_id'=> $questionID);
         $query='select answer_text,is_valid_answer,answer_question_id from answer where answer.answer_text= :answer_text and answer.answer_question_id= :answer_question_id';
+=======
+    function getAnswerQuestionID($questionID){
+        $params=array('answer_question_id'=> $questionID);
+        $query='select answer_text,is_valid_answer,answer_question_id from answer where answer.answer_question_id= :answer_question_id';
+>>>>>>> Stashed changes
 =======
     function getAnswerQuestionID($questionID){
         $params=array('answer_question_id'=> $questionID);
@@ -50,7 +62,11 @@
     function isAnswerRight($QuestionID){
         $params=array('answer_question_ID' => $QuestionID);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         $query='select is_valid_answer from answer where answer.is_valid_answer=1 and answer.answer_question_id= :answer_question_ID';
+=======
+        $query='select answer_text from answer where answer.is_valid_answer=1 and answer.answer_question_id= :answer_question_ID';
+>>>>>>> Stashed changes
 =======
         $query='select answer_text from answer where answer.is_valid_answer=1 and answer.answer_question_id= :answer_question_ID';
 >>>>>>> Stashed changes

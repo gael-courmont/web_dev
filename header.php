@@ -1,5 +1,11 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+
+<?php include_once 'database.php';?>
+
+>>>>>>> Stashed changes
 =======
 
 <?php include_once 'database.php';?>
@@ -18,6 +24,7 @@
     </div>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
     <div class="menuCategory">
         <span class="navtitle">Quizz</span>
@@ -31,12 +38,15 @@
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     <div class="menuCategory">
         <a href="create_account.php">create_account<a/>
     </div>
     <div class="menuCategory">
         <span class="navtitle">Quizz</span>
         <div class="withSeveralLinks">
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
             <?php foreach(getAllQuizz() as $quizz){
                 ?>
@@ -46,12 +56,17 @@
         <?php }?>
 >>>>>>> Stashed changes
 =======
+=======
+>>>>>>> Stashed changes
             <?php foreach(getAllQuizz() as $quizzheader){
                 ?>
             <a href="<?php echo $quizzheader['quizz_name'];?>.php">
                 <?php echo $quizzheader['quizz_name'];?>
                 </a>
         <?php }?>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         </div>
     </div>

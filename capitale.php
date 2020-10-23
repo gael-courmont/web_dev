@@ -1,5 +1,8 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 <?php include 'database.php';
     $quizz=getQuizzByName('capitale');
     $questiondata=getQuestionByQuizzId($quizz[0][0]);
@@ -8,6 +11,9 @@
 
 
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 <!DOCTYPE html>
 <html>
@@ -19,6 +25,7 @@
     <?php include 'header.php'?>
     <body>
             <div class="header">
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
                 <h1 id="title">Quiz #1</h1>
             </div>
@@ -66,6 +73,8 @@
 
                     </form>
 =======
+=======
+>>>>>>> Stashed changes
                 <h1 id="title"> Sujet:<?php echo $quizz[0][1]?></h1>
             </div>
 
@@ -82,6 +91,9 @@
                     <?php }?>
                     <input type="Submit" value="Submit" class="submitBtn">
                 </form>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 
