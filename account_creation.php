@@ -25,7 +25,7 @@ if ($user==NULL){
     </head>
     <?php include 'header.php'?>
     <body>
-        <p1> bienvenu
+        <p1> Welcome
         <?php
         echo $user[0][1];
         echo $user[0][0];

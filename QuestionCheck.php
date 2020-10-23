@@ -22,7 +22,7 @@
     </head>
     <?php include 'header.php'?>
     <body>
-        <h1>Vos réponses
+        <h1>Your answer
 
         </h1>
         <?php foreach(getQuestionByQuizzId($quizzid) as $question){?>
@@ -47,7 +47,7 @@
         <?php }?>
         </br>
         <h1>
-        Vous avez <?php echo $compteurBonneRep?> Point sur <?php echo $Nombre_question ?>
+        you got <?php echo $compteurBonneRep?> out of <?php echo $Nombre_question ?>
         </h1>
     </body>
     <?php include 'Footer.php'?>
