@@ -1,13 +1,22 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 <?php include 'database.php';
     
     $questiondata=getQuestionByQuizzId(2);
+=======
+<?php include 'database.php';
+    $quizz=getQuizzByName('musique');
+    $questiondata=getQuestionByQuizzId($quizz[0][0]);
+>>>>>>> Stashed changes
 
 ?>
 
 
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 <!DOCTYPE html>
 <html>
@@ -19,6 +28,7 @@
     <?php include 'header.php'?>
     <body>
             <div class="header">
+<<<<<<< Updated upstream
                 <h1 id="title">Quiz #1</h1>
             </div>
 
@@ -83,6 +93,29 @@
                 echo($questiondata[$i][1]);
             }
              ?>
+            </div>
+>>>>>>> Stashed changes
+=======
+                <h1 id="title"> Sujet:<?php echo $quizz[0][1]?></h1>
+            </div>
+
+            <div>
+                <form action="QuestionCheck.php?quizz=<?php echo $quizz[0][1]?>"  method = "POST">
+                    <?php foreach($questiondata as $question){?>
+                        <div class="quesFrame" >
+                            <p style="font-size: 22;"><?php echo $question[1]?></p>
+                                <?php foreach(getAnswerQuestionID($question[0]) as $answer){?>
+                                    <input type="checkbox" name=<?php echo $question[0]?> value=<?php echo $answer[0]?> > <?php echo $answer[0]?><br>
+                                <?php }?>
+                        
+                        </div>                      
+                    <?php }?>
+                    <input type="Submit" value="Submit" class="submitBtn">
+                </form>
+
+
+
+      
             </div>
 >>>>>>> Stashed changes
 

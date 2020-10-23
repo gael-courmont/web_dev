@@ -31,15 +31,21 @@ CREATE TABLE `answer` (
 --
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 INSERT INTO `answer` (`answer_text`, `is_valid_answer`,'answer_question_id') VALUES
 ('paris',false,1),
 ('londdres',false,1),
 ('barcelone',true,1);
 =======
+=======
+>>>>>>> Stashed changes
 INSERT INTO `answer` (`answer_text`, `is_valid_answer`,`answer_question_id`) VALUES
 (`paris`,`FALSE`,1),
 (`londdres`,`FALSE`,1),
 (`barcelone`,`TRUE`,1);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 -- --------------------------------------------------------
