@@ -1,229 +1,179 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- HÃ´te : localhost:8889
--- Version du serveur :  5.7.26
--- Version de PHP :  7.3.8
+-- Host: 127.0.0.1:3306
+-- Generation Time: Oct 23, 2020 at 03:37 PM
+-- Server version: 5.7.31
+-- PHP Version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
--- Base de donnÃ©es :  `my_databse_name` 
+-- Database: `quizzdb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `answer`
+-- Table structure for table `answer`
 --
 
-CREATE TABLE `answer` (
-  `answer_id` int(11) NOT NULL COMMENT 'answer identifier',
+DROP TABLE IF EXISTS `answer`;
+CREATE TABLE IF NOT EXISTS `answer` (
+  `answer_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'answer identifier',
   `answer_text` varchar(255) NOT NULL COMMENT 'text of the answer',
   `is_valid_answer` tinyint(1) NOT NULL COMMENT 'valid answer for question',
-  `answer_question_id` int(11) NOT NULL COMMENT 'question related'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `answer_question_id` int(11) NOT NULL COMMENT 'question related',
+  PRIMARY KEY (`answer_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement table 'answer' 
+-- Dumping data for table `answer`
 --
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-INSERT INTO `answer` (`answer_text`, `is_valid_answer`,'answer_question_id') VALUES
-('paris',false,1),
-('londdres',false,1),
-('barcelone',true,1);
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-INSERT INTO `answer` (`answer_text`, `is_valid_answer`,`answer_question_id`) VALUES
-(`paris`,`FALSE`,1),
-(`londdres`,`FALSE`,1),
-(`barcelone`,`TRUE`,1);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+INSERT INTO `answer` (`answer_id`, `answer_text`, `is_valid_answer`, `answer_question_id`) VALUES
+(1, 'paris', 0, 1),
+(2, 'london', 0, 1),
+(3, 'madrid', 1, 1),
+(5, 'madrid', 0, 2),
+(6, 'london', 0, 2),
+(7, 'paris', 1, 2),
+(8, 'paris', 0, 3),
+(9, 'london', 1, 3),
+(10, 'madrid', 0, 3),
+(11, 'human after all', 0, 4),
+(12, 'alive', 0, 4),
+(13, 'random access memories', 1, 4),
+(14, 'angus young', 1, 5),
+(15, 'jimmy page', 0, 5),
+(16, 'eddie van halen', 0, 5);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `question`
+-- Table structure for table `question`
 --
 
-CREATE TABLE `question` (
-  `question_id` int(11) NOT NULL COMMENT 'question_identification',
+DROP TABLE IF EXISTS `question`;
+CREATE TABLE IF NOT EXISTS `question` (
+  `question_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'question_identification',
   `question_title` varchar(255) NOT NULL COMMENT 'title of the question',
   `question_quizz_id` int(11) NOT NULL COMMENT 'link question quizz',
-  `question_input_type` varchar(255) NOT NULL COMMENT 'input of the question'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `question_input_type` varchar(255) NOT NULL COMMENT 'input of the question',
+  PRIMARY KEY (`question_id`),
+  KEY `question_quizz_id_fk` (`question_quizz_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement table 'question' 
+-- Dumping data for table `question`
 --
 
-INSERT INTO `question` (`question_title`, `question_input_type`, `questioon_quizz_id`) VALUES
-('quel est la capitale de l espagne',checkbox,1)
-
+INSERT INTO `question` (`question_id`, `question_title`, `question_quizz_id`, `question_input_type`) VALUES
+(1, 'what is the capital city of spain', 1, 'checkbox'),
+(2, 'what is the capital city of france', 1, 'checkbox'),
+(3, 'what is the capital city of england', 1, 'checkbox'),
+(4, 'what is the name of the daft punk last album', 2, 'radio'),
+(5, 'type the name of acdc guitarist', 2, 'string');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `quizz`
+-- Table structure for table `quizz`
 --
 
-CREATE TABLE `quizz` (
-  `quizz_id` int(11) NOT NULL COMMENT 'Quizz Identifiant',
-  `quizz_name` varchar(255) NOT NULL COMMENT 'Quizz name'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `quizz`;
+CREATE TABLE IF NOT EXISTS `quizz` (
+  `quizz_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Quizz Identifiant',
+  `quizz_name` varchar(255) NOT NULL COMMENT 'Quizz name',
+  PRIMARY KEY (`quizz_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement table 'quizz' 
+-- Dumping data for table `quizz`
 --
 
-INSERT INTO `quizz` (`quizz_name`) VALUES
-('capitale');
-
+INSERT INTO `quizz` (`quizz_id`, `quizz_name`) VALUES
+(1, 'capitale'),
+(2, 'musique');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `user` (
-  `user_id` int(11) NOT NULL COMMENT 'user identifiant',
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'user identifiant',
   `user_last_name` varchar(255) NOT NULL COMMENT 'user last name',
   `user_first_name` varchar(255) NOT NULL COMMENT 'user first name',
   `user_adress` longtext COMMENT 'user physical adress',
   `user_phone` varchar(255) DEFAULT NULL COMMENT 'user phone',
   `user_birthdate` datetime DEFAULT NULL,
-  `user_password` varchar(255) NOT NULL COMMENT 'User Password'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `user_password` varchar(255) NOT NULL COMMENT 'User Password',
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement table 'user' 
+-- Dumping data for table `user`
 --
 
-INSERT INTO `quizz` ('user_last_name','user_first_name','user_adress','user_phone','user_birthdate','user_password') VALUES
-('courmont','gael','156 rue de douai','','','password');
-
+INSERT INTO `user` (`user_id`, `user_last_name`, `user_first_name`, `user_adress`, `user_phone`, `user_birthdate`, `user_password`) VALUES
+(1, 'courmont', 'gael', 'rue de douai', '0781', NULL, 'les3freres'),
+(10, 'gael', 'couront', NULL, NULL, NULL, 'les3freres'),
+(11, 'gael', 'Courmont', NULL, NULL, NULL, 'les3');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `user_answer`
+-- Table structure for table `user_answer`
 --
 
-CREATE TABLE `user_answer` (
-  `user_answer_id` int(11) NOT NULL COMMENT 'User answer identifiant',
+DROP TABLE IF EXISTS `user_answer`;
+CREATE TABLE IF NOT EXISTS `user_answer` (
+  `user_answer_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'User answer identifiant',
   `user_id` int(11) NOT NULL COMMENT 'user identifiant',
   `answer_id` int(11) NOT NULL COMMENT 'answer_id',
-  `user_answer_date` timestamp NULL DEFAULT NULL COMMENT 'date of answer user'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `user_answer_date` timestamp NULL DEFAULT NULL COMMENT 'date of answer user',
+  PRIMARY KEY (`user_answer_id`),
+  KEY `user_id_fk` (`user_id`),
+  KEY `answer_id_fk` (`answer_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
--- Déchargement table 'user_answer' 
+-- Dumping data for table `user_answer`
 --
 
-INSERT INTO `user_answer` ('user_id','answer_id','user_answer_date') VALUES
-(1,1,now());
-
-
+INSERT INTO `user_answer` (`user_answer_id`, `user_id`, `answer_id`, `user_answer_date`) VALUES
+(1, 1, 1, '2020-10-23 08:50:09');
 
 --
--- Index pour les tables dÃ©chargÃ©es
---
-
---
--- Index pour la table `answer`
---
-ALTER TABLE `answer`
-  ADD PRIMARY KEY (`answer_id`);
-
---
--- Index pour la table `question`
---
-ALTER TABLE `question`
-  ADD PRIMARY KEY (`question_id`),
-  ADD KEY `question_quizz_id_fk` (`question_quizz_id`);
-
---
--- Index pour la table `quizz`
---
-ALTER TABLE `quizz`
-  ADD PRIMARY KEY (`quizz_id`);
-
---
--- Index pour la table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- Index pour la table `user_answer`
---
-ALTER TABLE `user_answer`
-  ADD PRIMARY KEY (`user_answer_id`),
-  ADD KEY `user_id_fk` (`user_id`),
-  ADD KEY `answer_id_fk` (`answer_id`);
-
---
--- AUTO_INCREMENT pour les tables dÃ©chargÃ©es
+-- Constraints for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `answer`
---
-ALTER TABLE `answer`
-  MODIFY `answer_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'answer identifier';
-
---
--- AUTO_INCREMENT pour la table `question`
---
-ALTER TABLE `question`
-  MODIFY `question_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'question_identification';
-
---
--- AUTO_INCREMENT pour la table `quizz`
---
-ALTER TABLE `quizz`
-  MODIFY `quizz_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Quizz Identifiant';
-
---
--- AUTO_INCREMENT pour la table `user`
---
-ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'user identifiant';
-
---
--- AUTO_INCREMENT pour la table `user_answer`
---
-ALTER TABLE `user_answer`
-  MODIFY `user_answer_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'User answer identifiant';
-
---
--- Contraintes pour les tables dÃ©chargÃ©es
---
-
---
--- Contraintes pour la table `question`
+-- Constraints for table `question`
 --
 ALTER TABLE `question`
   ADD CONSTRAINT `question_quizz_id_fk` FOREIGN KEY (`question_quizz_id`) REFERENCES `quizz` (`quizz_id`);
 
 --
--- Contraintes pour la table `user_answer`
+-- Constraints for table `user_answer`
 --
 ALTER TABLE `user_answer`
   ADD CONSTRAINT `answer_id_fk` FOREIGN KEY (`answer_id`) REFERENCES `answer` (`answer_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
