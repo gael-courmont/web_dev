@@ -30,10 +30,17 @@ CREATE TABLE `answer` (
 -- Déchargement table 'answer' 
 --
 
+<<<<<<< Updated upstream
 INSERT INTO `answer` (`answer_text`, `is_valid_answer`,'answer_question_id') VALUES
 ('paris',false,1),
 ('londdres',false,1),
 ('barcelone',true,1);
+=======
+INSERT INTO `answer` (`answer_text`, `is_valid_answer`,`answer_question_id`) VALUES
+(`paris`,`FALSE`,1),
+(`londdres`,`FALSE`,1),
+(`barcelone`,`TRUE`,1);
+>>>>>>> Stashed changes
 
 -- --------------------------------------------------------
 

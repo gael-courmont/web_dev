@@ -1,3 +1,14 @@
+<<<<<<< Updated upstream
+=======
+<?php include 'database.php';
+    
+    $questiondata=getQuestionByQuizzId(2);
+
+?>
+
+
+
+>>>>>>> Stashed changes
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,16 +23,26 @@
             </div>
 
             <div>
+<<<<<<< Updated upstream
                 <div class="quesFrame" >
                     <p style="font-size: 22;">what is 3*3 ?</p>
                     <form action="submitAction.php"  method = "POST">
                         <input type="radio" name="value" value="9"> 9<br>
                         <input type="radio" name="value" value="6"> 6<br>
                         <input type="radio" name="value" value="3"> 3
+=======
+                <div class="quesFrame" >'
+                    <p style="font-size: 22;"><?php echo($questiondata[0][1]);?></p>
+                    <form action="QuestionCheck.php?quizz=musique"  method = "POST">
+                        <input type="radio" name=<?php echo $questiondata[0][0];?> value="human after all">human after all<br>
+                        <input type="radio" name=<?php echo $questiondata[0][0];?> alue="alive"> alive<br>
+                        <input type="radio" name=<?php echo $questiondata[0][0];?> value="random access memories"> random access memories
+>>>>>>> Stashed changes
                    
                 </div>
 
                 <div class="quesFrame">
+<<<<<<< Updated upstream
                     <p style="font-size: 22;">what do you have ?</p>
                     
                         <input type="checkbox" id="vehicle1" name="vehicle1" value="bike">
@@ -30,6 +51,16 @@
                         <label for="vehicle2"> I have a car</label><br>
                         <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
                         <label for="vehicle3"> I have a boat</label><br>
+=======
+                    <p style="font-size: 22;"><?php echo($questiondata[1][1]);?></p>
+                    
+                        <input type="checkbox" id="a2" name=<?php echo $questiondata[1][0];?> value="angus young">
+                        <label for="a1"> angus young</label><br>
+                        <input type="checkbox" id="a2" name=<?php echo $questiondata[1][0];?> value="jimmy page">
+                        <label for="a2"> jimmy page</label><br>
+                        <input type="checkbox" id="a2" name=<?php echo $questiondata[1][0];?> value="eddie van halen">
+                        <label for="a3"> eddie van halen</label><br>
+>>>>>>> Stashed changes
                     
                 </div>
             
@@ -38,8 +69,22 @@
 
                     </form>
 
+<<<<<<< Updated upstream
       
             </div>
+=======
+
+
+      
+            </div>
+            <div>
+            <?php 
+            for ($i=0 ; $i<count($questiondata) ; $i=$i+1){
+                echo($questiondata[$i][1]);
+            }
+             ?>
+            </div>
+>>>>>>> Stashed changes
 
         </body>
     <?php include 'Footer.php'?>
