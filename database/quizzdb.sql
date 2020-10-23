@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 23, 2020 at 03:37 PM
+-- Generation Time: Oct 23, 2020 at 06:12 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -53,9 +53,7 @@ INSERT INTO `answer` (`answer_id`, `answer_text`, `is_valid_answer`, `answer_que
 (11, 'human after all', 0, 4),
 (12, 'alive', 0, 4),
 (13, 'random access memories', 1, 4),
-(14, 'angus young', 1, 5),
-(15, 'jimmy page', 0, 5),
-(16, 'eddie van halen', 0, 5);
+(14, 'angus young', 1, 5);
 
 -- --------------------------------------------------------
 
