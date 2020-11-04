@@ -1,4 +1,6 @@
 <?php
+    global $bdd;
+    $bdd=new PDO('mysql:hoost=localhost;dbname=quizzdb','root');
     function getAllQuizz(){
         $query ='select * from quizz';
         return executeQuery($query,null);
@@ -33,9 +35,9 @@
         $query='select * from answer where answer.answer_question_id= :answer_question_id';
         return executeQuery($query,$params);
     }
-    function getAnswerIDbyname($answername){
-        $params=array('answer_text' => $answername);
-        $query='select answer_id from answer where answer.answer_text= :answer_text';
+    function getAnswernamebyid($answerid){
+        $params=array('answer_id' => $answerid);
+        $query='select answer_text from answer where answer.answer_id= :answer_id';
         return executeQuery($query,$params);
         
     }
@@ -48,8 +50,8 @@
     }
 
     function executeQuery($query,$params){
+        $bdd=$GLOBALS['bdd'];
         //connect to our quizz db
-        $bdd=new PDO('mysql:hoost=localhost;dbname=quizzdb','root');
         try{
             $res=$bdd->prepare($query);
             $res->execute($params);

@@ -1,5 +1,5 @@
 <?php
-    include 'database.php';
+    include 'header.php';
     $QuizzName=$_GET['quizz'];
     $quizz=getQuizzByName($QuizzName);
     $quizzid=$quizz[0]['quizz_id'];
@@ -20,7 +20,6 @@
         <link rel="stylesheet" href="main.css" />
         <link rel="stylesheet" href="common.css" />
     </head>
-    <?php include 'header.php'?>
     <body>
         <h1>Your answer
 
@@ -32,9 +31,15 @@
                     $answer=isAnswerRight($question['question_id'])[0][0];
                     $clientanswer=$_POST[$question['question_id']];
                     if (is_numeric($clientanswer)==FALSE){
-                        $clientanswer=getAnswerIDbyname($clientanswer)[0][0];
+                        if ($clientanswer==getAnswernamebyid($answer)[0][0]){
+                            echo("True");
+                            $compteurBonneRep++;
+                        }
+                        else{
+                            echo("False");
+                        }
                     }
-                    if ($answer==$clientanswer){
+                    elseif ($answer==$clientanswer){
                         echo("True");
                         $compteurBonneRep++;
                     }
