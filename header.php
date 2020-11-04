@@ -1,5 +1,6 @@
 
-<?php include_once 'database.php';?>
+<?php include_once 'database.php';
+?>
 
 <header>
     <a id="headertitle" href="home.php">Geo quizz</a>
@@ -15,7 +16,7 @@
         <div class="withSeveralLinks">
             <?php foreach(getAllQuizz() as $quizzheader){
                 ?>
-            <a href="<?php echo $quizzheader['quizz_name'];?>.php">
+            <a href="quizz.php?quizz=<?php echo $quizzheader['quizz_name'];?>">
                 <?php echo $quizzheader['quizz_name'];?>
                 </a>
         <?php }?>

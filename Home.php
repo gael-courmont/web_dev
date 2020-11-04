@@ -7,17 +7,6 @@
     </head>
     <?php include 'header.php'?>
     <body style= "background-color: grey"  >
-            <header>
-                <img src="https://i.pinimg.com/originals/1a/eb/2d/1aeb2d30086376c2ada20bdbad8b5943.gif"width="400" height="370" style="float:right; margin:90px 0px 0px 0px"/>
-                <h1>
-                    <center>
-                        <p  style="color: black ; background-color: green; padding : 22px ; font-size: 40px;">  GéoQuizzz </p>
-                    </center>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sciences_de_la_terre.svg/768px-Sciences_de_la_terre.svg.png"width="400" height="370" style="float:left"/>
-            
-                </h1>
-            
-            </header>
 
             <section>
                 <aside>

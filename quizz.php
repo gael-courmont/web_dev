@@ -1,5 +1,7 @@
-<?php include 'database.php';
-    $quizz=getQuizzByName('music');
+<?php 
+    include 'header.php';
+    $QuizzName=$_GET['quizz'];
+    $quizz=getQuizzByName($QuizzName);
     $questiondata=getQuestionByQuizzId($quizz[0][0]);
 
 ?>
@@ -13,7 +15,6 @@
         <link rel="stylesheet" href="main.css" />
         <link rel="stylesheet" href="common.css" />
     </head>
-    <?php include 'header.php'?>
     <body>
             <div class="header">
                 <h1 id="title"> Sujet:<?php echo $quizz[0][1]?></h1>
