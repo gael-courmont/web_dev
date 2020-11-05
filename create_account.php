@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html>
     
-    <head>
-        <title>Geoquizz</title>
-        <link rel="stylesheet" href="main.css" />
-        <link rel="stylesheet" href="common.css" />
-    </head>
-
-    <?php include 'header.php'?>
-    
     <body >
         <?php 
         if ( isset($_POST['fname'])) {
@@ -49,6 +41,4 @@
         </form> 
         <?php }?>
     </body>
-    
-    <?php include 'Footer.php'?>
 </html>

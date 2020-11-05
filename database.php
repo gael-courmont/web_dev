@@ -1,6 +1,4 @@
 <?php
-    global $bdd;
-    $bdd=new PDO('mysql:hoost=localhost;dbname=quizzdb','root');
     function getAllQuizz(){
         $query ='select * from quizz';
         return executeQuery($query,null);

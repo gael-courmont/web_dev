@@ -1,5 +1,4 @@
 <?php 
-    include 'header.php';
     $QuizzName=$_GET['quizz'];
     $quizz=getQuizzByName($QuizzName);
     $questiondata=getQuestionByQuizzId($quizz[0][0]);
@@ -10,11 +9,6 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Geoquizz</title>
-        <link rel="stylesheet" href="main.css" />
-        <link rel="stylesheet" href="common.css" />
-    </head>
     <body>
             <div class="header">
                 <h1 id="title"> Sujet:<?php echo $quizz[0][1]?></h1>
@@ -41,5 +35,4 @@
             </div>
 
         </body>
-    <?php include 'Footer.php'?>
 </html>

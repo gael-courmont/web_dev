@@ -1,5 +1,4 @@
 <?php
-    include 'header.php';
     $QuizzName=$_GET['quizz'];
     $quizz=getQuizzByName($QuizzName);
     $quizzid=$quizz[0]['quizz_id'];
@@ -15,11 +14,6 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Geoquizz</title>
-        <link rel="stylesheet" href="main.css" />
-        <link rel="stylesheet" href="common.css" />
-    </head>
     <body>
         <h1>Your answer
 
@@ -55,5 +49,4 @@
         you got <?php echo $compteurBonneRep?> out of <?php echo $Nombre_question ?>
         </h1>
     </body>
-    <?php include 'Footer.php'?>
 </html>

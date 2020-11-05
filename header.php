@@ -1,22 +1,26 @@
 
 <?php include_once 'database.php';
 ?>
-
+<head>
+        <title>Geoquizz</title>
+        <link rel="stylesheet" href="main.css" />
+        <link rel="stylesheet" href="common.css" />
+</head>
 <header>
-    <a id="headertitle" href="home.php">Geo quizz</a>
+    <a id="headertitle" href="index.php?page=home">Geo quizz</a>
     <nav>
     <div class="menuCategory">
-        <a href="search.php">Contact<a/>
+        <a href="index.php?page=search">Contact<a/>
     </div>
     <div class="menuCategory">
-        <a href="create_account.php">create_account<a/>
+        <a href="index.php?page=create_account">create_account<a/>
     </div>
     <div class="menuCategory">
         <span class="navtitle">Quizz</span>
         <div class="withSeveralLinks">
             <?php foreach(getAllQuizz() as $quizzheader){
                 ?>
-            <a href="quizz.php?quizz=<?php echo $quizzheader['quizz_name'];?>">
+            <a href="index.php?page=quizz&quizz=<?php echo $quizzheader['quizz_name'];?>">
                 <?php echo $quizzheader['quizz_name'];?>
                 </a>
         <?php }?>
