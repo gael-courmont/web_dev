@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+
     <body style= "background-color: grey"  >
 
             <section>
@@ -22,4 +21,3 @@
             </section>
         
         </body>
-</html>

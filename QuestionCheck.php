@@ -5,15 +5,11 @@
     $questiondata=getQuestionByQuizzId($quizzid);
     $compteurBonneRep=0;
     $Nombre_question=count($questiondata);
-
-
 ?>
 
 
 
 
-<!DOCTYPE html>
-<html>
     <body>
         <h1>Your answer
 
@@ -49,4 +45,3 @@
         you got <?php echo $compteurBonneRep?> out of <?php echo $Nombre_question ?>
         </h1>
     </body>
-</html>
