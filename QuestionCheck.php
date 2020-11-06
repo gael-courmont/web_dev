@@ -1,11 +1,11 @@
 <?php
     $QuizzName=$_GET['quizz'];
-    $quizz=getQuizzByName($QuizzName);
-    $quizzid=$quizz[0]['quizz_id'];
+    $quizzid=$_GET['quizzId'];
     $questiondata=getQuestionByQuizzId($quizzid);
     $compteurBonneRep=0;
     $Nombre_question=count($questiondata);
 ?>
+
 
 
 

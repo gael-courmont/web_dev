@@ -1,20 +1,18 @@
 <?php 
-    $QuizzName=$_GET['quizz'];
-    $quizz=getQuizzByName($QuizzName);
-    $questiondata=getQuestionByQuizzId($quizz[0][0]);
+    $QuizzId=$_GET['quizzId'];
+    $QuizzName=$_GET['quizzName'];
+    $questiondata=getQuestionByQuizzId($QuizzId);
 
 ?>
 
 
-
-
 <body>
     <div class="header">
-        <h1 id="title"> Sujet:<?php echo $quizz[0][1]?></h1>
+        <h1 id="title"> Sujet:<?php echo $QuizzName?></h1>
     </div>
 
     <div>
-        <form action="index.php?page=QuestionCheck&quizz=<?php echo $quizz[0][1]?>"  method = "POST">
+        <form action="index.php?page=QuestionCheck&quizz=<?php echo $QuizzName?>&quizzId=<?php echo $QuizzId?>"  method = "POST">
             <?php foreach($questiondata as $question){?>
             <?php $inputtype=$question[3];?>
             <div class="quesFrame" >

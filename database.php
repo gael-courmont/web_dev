@@ -3,12 +3,6 @@
         $query ='select * from quizz';
         return executeQuery($query,null);
     }
-
-    function getQuizzByName($QuizzName){
-        $params=array('QuizzName' => $QuizzName);
-        $query ='select * from quizz where quizz.Quizz_name= :QuizzName';
-        return executeQuery($query,$params);
-    }
     
     function getQuestionByQuizzId($QuizzId){
         $params = array('quizzID' => $QuizzId);
@@ -22,9 +16,9 @@
         $query='insert into user(user_last_name,user_first_name,user_adress,user_phone,user_birthdate,user_password) VALUES (:user_last_name, :user_first_name,NULL, NULL, NULL,:user_password);';
         return executeQuery($query,$params);
     }
-    function getUserByName($fname,$lname){
-        $params=array('fname' => $fname,'lname'=>$lname);
-        $query ='select * from user where user_first_name= :fname and user_last_name= :lname';
+    function getUserByName($name){
+        $params=array('fname' => $name);
+        $query ='select user_last_name,user_first_name from user where user_first_name= :fname';
         return executeQuery($query,$params);
     }
 
