@@ -1,6 +1,5 @@
 
-<?php include_once 'database.php';
-?>
+
 <head>
         <title>Geoquizz</title>
         <link rel="stylesheet" href="main.css" />
@@ -16,6 +15,9 @@
         <a href="index.php?page=create_account">create_account<a/>
     </div>
     <div class="menuCategory">
+        <a href="index.php?page=login">Login<a/>
+    </div>
+    <div class="menuCategory">
         <span class="navtitle">Quizz</span>
         <div class="withSeveralLinks">
             <?php foreach(getAllQuizz() as $quizzheader){
@@ -26,5 +28,6 @@
         <?php }?>
         </div>
     </div>
+
     </nav>
 </header>

@@ -22,9 +22,9 @@
         $query='insert into user(user_last_name,user_first_name,user_adress,user_phone,user_birthdate,user_password) VALUES (:user_last_name, :user_first_name,NULL, NULL, NULL,:user_password);';
         return executeQuery($query,$params);
     }
-    function getUserByName($name){
-        $params=array('fname' => $name);
-        $query ='select user_last_name,user_first_name from user where user_first_name= :fname';
+    function getUserByName($fname,$lname){
+        $params=array('fname' => $fname,'lname'=>$lname);
+        $query ='select * from user where user_first_name= :fname and user_last_name= :lname';
         return executeQuery($query,$params);
     }
 

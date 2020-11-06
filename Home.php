@@ -1,7 +1,7 @@
 
-    <body style= "background-color: grey"  >
+<body style= "background-color: grey"  >
 
-            <section>
+    <section>
                 <aside>
                 
                     <h1> 
@@ -20,4 +20,4 @@
                 </h1>
             </section>
         
-        </body>
+</body>
