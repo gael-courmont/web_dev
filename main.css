@@ -1,9 +1,9 @@
 
 body {
     margin: 0px;
-    --aside-width: 200px;
+    /* --aside-width: 200px;
     --horizontal-margin:10px;
-    --picture-width:200px;
+    --picture-width:200px; */
     /*--section-width:calc(98vw - var(--aside-width) - var(--horizontal-margin) );*/
     padding-bottom:50px;
 }
@@ -157,3 +157,22 @@ section {
     cursor: pointer;
     border: none;
 }
+
+.container{
+    margin:40px;
+}
+
+.leftNote{
+    float: left;
+    width:70%;
+}
+
+.rightNote{
+    background-color:rgb(170, 170, 166) ;
+    width:20%;
+    border-radius: 20px;
+    float: right;
+    padding:10px;
+    margin-right: 20px;
+}
+
