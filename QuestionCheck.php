@@ -4,6 +4,9 @@
     $questiondata=getQuestionByQuizzId($quizzid);
     $compteurBonneRep=0;
     $Nombre_question=count($questiondata);
+    $Nombre_reponse=0;
+    $TextAnswer;
+    $answer_number=0;
 ?>
 
 
@@ -16,32 +19,42 @@
         </h1>
         <?php foreach(getQuestionByQuizzId($quizzid) as $question){?>
             <p1 >
-                <?php echo $question['question_title'];?>:
+                <?php echo $question['question_title'].' ';?>:
                 <?php 
-                    $answer=isAnswerRight($question['question_id'])[0][0];
-                    $clientanswer=$_POST[$question['question_id']];
+                    $answer=isAnswerRight($question['question_id']);
+                    foreach( ($_POST[$question['question_id']]) as $clientanswer){
+                    $answer_number++;
+                    $Nombre_reponse++;
+                    for ($i=0;$i<count($answer);$i++){
+                        $good_answer=$answer[$i][0];
                     if (is_numeric($clientanswer)==FALSE){
-                        if ($clientanswer==getAnswernamebyid($answer)[0][0]){
-                            echo("True");
+                        $good_answer=$good_answer;
+                        if ($clientanswer==getAnswernamebyid($good_answer)[0][0]){
+                            $TextAnswer='true';
                             $compteurBonneRep++;
+                        break;
                         }
                         else{
-                            echo("False");
+                            $TextAnswer='false';
                         }
                     }
-                    elseif ($answer==$clientanswer){
-                        echo("True");
+                    elseif ($good_answer==$clientanswer){
+                        $TextAnswer='true';
                         $compteurBonneRep++;
+                        break;
                     }
                     else{
-                        echo("False");
-                    }
+                        $TextAnswer='false';
+                    }}
+                echo ('Your answer number '.$answer_number." is ".$TextAnswer);                
+                }
+                $answer_number=0;
                 ?>
                 </br>
             </p1>
         <?php }?>
         </br>
         <h1>
-        you got <?php echo $compteurBonneRep?> out of <?php echo $Nombre_question ?>
+        you got <?php echo $compteurBonneRep?> out of <?php echo $Nombre_reponse ?>
         </h1>
     </body>

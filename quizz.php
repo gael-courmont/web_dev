@@ -17,12 +17,25 @@
             <?php $inputtype=$question[3];?>
             <div class="quesFrame" >
             <p style="font-size: 22;"><?php echo $question[1]?> ?</p>
-            <?php foreach(getAnswerQuestionID($question[0]) as $answer){?>
-                <input type=<?php echo $inputtype;?> name=<?php echo $question[0]?> value=<?php if($inputtype=='string'){} else{echo $answer[0];}?> > <?php if($inputtype!='string'){ echo $answer[1]; }?><br>
+            
+            <?php if($inputtype=='select'){ ?>
+                <select id=<?php echo $question[0].'[]';?> name=<?php echo $question[0].'[]';?> >
+                <?php
+                foreach(getAnswerQuestionID($question[0]) as $answer){?>
+                    <option value=<?php echo $answer[0];?> > <?php echo $answer[1];?></option>
                 <?php }?>
-                        
-                </div>                      
-                <?php }?>
+                </select>
+                <?php
+
+                }
+                
+                else {foreach(getAnswerQuestionID($question[0]) as $answer){?>
+                <input type=<?php echo $inputtype;?> name=<?php echo $question[0].'[]';?> value=<?php if($inputtype=='string'){} else{echo $answer[0];}?> > <?php if($inputtype!='string'){ echo $answer[1]; }?><br>
+                <?php }?>                      
+                <?php } ?>
+            </div>
+            
+            <?php } ?>
                 <input type="Submit" value="Submit" class="submitBtn">
             </form>
 
