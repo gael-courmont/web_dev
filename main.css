@@ -90,6 +90,13 @@ nav a:hover, nav span:hover{
 
 }
 
+.loginCategory {
+    display:inline-block;
+    position: relative;
+    text-align: right;
+    padding:5px 10px;
+}
+
 .withSeveralLinks {
     display: none; 
     position:absolute;   

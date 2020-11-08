@@ -5,7 +5,7 @@
         }
         return false;
     }
-
+//verification si l'utilisateur existe et si le 
 function connection($userfname,$userlname,$password){
     $user=getUserByName($userfname,$userlname);
     if ($user){
@@ -18,11 +18,12 @@ function connection($userfname,$userlname,$password){
 }
 function Session_lancement($user){
     // on rempli les sessions
-    $_SESSION['password']     = $user[0][6];
-    $_SESSION['lname']  = $user[0][1];
+    $_SESSION['lname']= $user[0][1];
     $_SESSION['fname']=$user[0][2];
-    echo "oui";
 }
- 
 
+function disconnect(){
+    unset($_SESSION['lname']);
+    unset($_SESSION['fname']);
+}
 ?>

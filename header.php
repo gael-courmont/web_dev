@@ -28,5 +28,17 @@
         <?php }?>
         </div>
     </div>
+    <?php if (isset($_SESSION['fname'])){ ?>
+        <div class="loginCategory">
+            <p1>
+                Connected as <?php echo $_SESSION['fname'];?> <?php echo $_SESSION['lname'];?>
+            </p1>
+        </div>
+        <div class="loginCategory">
+            <a href="index.php?page=disconnect" >
+                disconnect
+                </a>
+        </div>
+        <?php } ?>
     </nav>
 </header>
