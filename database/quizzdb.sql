@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 23, 2020 at 06:46 PM
+-- Generation Time: Nov 08, 2020 at 08:46 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `is_valid_answer` tinyint(1) NOT NULL COMMENT 'valid answer for question',
   `answer_question_id` int(11) NOT NULL COMMENT 'question related',
   PRIMARY KEY (`answer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `answer`
@@ -53,7 +53,15 @@ INSERT INTO `answer` (`answer_id`, `answer_text`, `is_valid_answer`, `answer_que
 (11, 'human after all', 0, 4),
 (12, 'alive', 0, 4),
 (13, 'random access memories', 1, 4),
-(14, 'angus young', 1, 5);
+(14, 'angus young', 1, 5),
+(15, 'Nirvana', 1, 6),
+(16, 'Placebo', 0, 6),
+(17, 'Pearl Jeam', 0, 6),
+(18, 'Offspring', 0, 6),
+(19, 'Brian Johnson', 0, 7),
+(20, 'Stevie young', 0, 7),
+(21, 'Anthony Kiedis', 1, 7),
+(22, 'chad smith', 1, 7);
 
 -- --------------------------------------------------------
 
@@ -69,18 +77,20 @@ CREATE TABLE IF NOT EXISTS `question` (
   `question_input_type` varchar(255) NOT NULL COMMENT 'input of the question',
   PRIMARY KEY (`question_id`),
   KEY `question_quizz_id_fk` (`question_quizz_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `question`
 --
 
 INSERT INTO `question` (`question_id`, `question_title`, `question_quizz_id`, `question_input_type`) VALUES
-(1, 'what is the capital city of spain', 1, 'checkbox'),
-(2, 'what is the capital city of france', 1, 'checkbox'),
-(3, 'what is the capital city of england', 1, 'checkbox'),
+(1, 'what is the capital city of spain', 1, 'radio'),
+(2, 'what is the capital city of france', 1, 'radio'),
+(3, 'what is the capital city of england', 1, 'radio'),
 (4, 'what is the name of the daft punk last album', 2, 'radio'),
-(5, 'type the name of acdc guitarist', 2, 'string');
+(5, 'type the name of acdc guitarist', 2, 'string'),
+(6, 'which group interpreted smell like teen spirit', 2, 'select'),
+(7, 'which of these artist is not in the acdc actual band multiple good answer', 2, 'checkbox');
 
 -- --------------------------------------------------------
 
@@ -119,17 +129,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `user_birthdate` datetime DEFAULT NULL,
   `user_password` varchar(255) NOT NULL COMMENT 'User Password',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `user_last_name`, `user_first_name`, `user_adress`, `user_phone`, `user_birthdate`, `user_password`) VALUES
-(1, 'courmont', 'gael', 'rue de douai', '0781', NULL, 'les3freres'),
-(10, 'gael', 'couront', NULL, NULL, NULL, 'les3freres'),
-(11, 'gael', 'Courmont', NULL, NULL, NULL, 'les3'),
-(12, 'Doe', 'John', NULL, NULL, NULL, '***');
+(7, 'Courmont', 'Gael', NULL, NULL, NULL, 'les3'),
+(18, 'Doe', 'John', NULL, NULL, NULL, '***');
 
 -- --------------------------------------------------------
 
@@ -146,14 +154,7 @@ CREATE TABLE IF NOT EXISTS `user_answer` (
   PRIMARY KEY (`user_answer_id`),
   KEY `user_id_fk` (`user_id`),
   KEY `answer_id_fk` (`answer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `user_answer`
---
-
-INSERT INTO `user_answer` (`user_answer_id`, `user_id`, `answer_id`, `user_answer_date`) VALUES
-(1, 1, 1, '2020-10-23 08:50:09');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Constraints for dumped tables
