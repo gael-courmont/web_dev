@@ -1,9 +1,12 @@
 
 
 <body>
-  <?php if (isset($_SESSION['fname'])) {?>
+  <?php
+   
+   if (isset($_SESSION['fname'])) {?>
       <div class="container">
-        <h2>You are already logged in as <?php echo $_SESSION['fname'];?> <?php echo $_SESSION['lname'];?></h2>
+        <h2>You are already logged in as <?php echo $_SESSION['fname'];?> 
+        <?php echo $_SESSION['lname'];?></h2>
     </div>
   <?php }
   else { ?>

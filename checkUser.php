@@ -11,6 +11,7 @@ function connection($userfname,$userlname,$password){
     if ($user){
         $verif=password_verification($user,$password);
         if ($verif){
+            $_SESSION['loggedIn']=true;
             return $user;
         }
     }
@@ -25,5 +26,6 @@ function Session_lancement($user){
 function disconnect(){
     unset($_SESSION['lname']);
     unset($_SESSION['fname']);
+    unset($_SESSION['loggedIn']);
 }
 ?>

@@ -3,7 +3,8 @@
     <body >
         <?php if (isset($_SESSION['fname'])) {?>
             <div class="container">
-                <h2>You are already logged in as <?php echo $_SESSION['fname'];?> <?php echo $_SESSION['lname'];?></h2>
+                <h2>You are already logged in as <?php echo $_SESSION['fname'];?> 
+                <?php echo $_SESSION['lname'];?></h2>
             </div>
         <?php } 
         else { ?>
@@ -18,7 +19,8 @@
                     $user=getUserByName($_POST['fname'],$_POST['lname']);
                 ?>
                 <body>
-                    <p1> Welcome <?php echo $user[0][2];?> <?php echo $user[0][1]; if(session_status()==PHP_SESSION_ACTIVE){echo "oui la session est active";}?>
+                    <p1> Welcome <?php echo $user[0][2];?> <?php echo $user[0][1]; 
+                    if(session_status()==PHP_SESSION_ACTIVE){echo "oui la session est active";}?>
                         
                     </p1>
                     </br>
