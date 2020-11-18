@@ -15,7 +15,7 @@
 
         if ($user){
             Session_lancement($user);
-            $sentence="User connected";
+            $sentence="User connected you can now choose your exam from Quizz nav";
         }
         else{
             $sentence="User don't exist";
@@ -33,6 +33,10 @@
         <?php
         include "header.php";
 
+        if (!isset($_GET['page'])){
+            header('location: index.php?page=home');
+        };
+
         if (isset($_GET['page'])){
             $page=$_GET['page'];}
         if (file_exists($page.'.php')){
@@ -45,7 +49,9 @@
          (($_GET['page'])=='disconnect')) 
           ){
            if(isset($sentence)){
-                echo $sentence;
+                echo '<div class="welcome">'.
+                         $sentence
+                    .'</div>';
             }else {
                 header('Location:index.php?page=login');
             }

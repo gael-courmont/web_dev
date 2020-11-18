@@ -4,12 +4,10 @@
         return executeQuery($query,null);
     }
 
-    
     function getQuestionByQuizzId($QuizzId){
         $params = array('quizzID' => $QuizzId);
         $query='select * from question where question_quizz_id= :quizzID';
         return executeQuery($query,$params);
-
     }
 
     function createUser($fname,$lname,$password){
