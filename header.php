@@ -1,5 +1,6 @@
 
 
+
 <head>
         <title>Geoquizz</title>
         <link rel="stylesheet" href="main.css" />
@@ -32,6 +33,7 @@
         <?php
             foreach(getAllQuizz() as $quizzheader){
                 ?>
+
             <a href="index.php?page=quizz&quizzId=<?php 
                 echo $quizzheader['quizz_id'];?>&quizzName=
                 <?php echo $quizzheader['quizz_name'];?>">

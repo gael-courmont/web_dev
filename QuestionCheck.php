@@ -1,4 +1,5 @@
 <?php
+
     $QuizzName=$_GET['quizz'];
     $quizzid=$_GET['quizzId'];
     $questiondata=getQuestionByQuizzId($quizzid);
@@ -8,7 +9,6 @@
     $TextAnswer;
     $answer_number=0;
 ?>
-
 
 
 
