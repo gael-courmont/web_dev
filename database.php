@@ -32,6 +32,10 @@
         return executeQuery($query,$params);
         
     }
+    function getFalseAnswerbyquestionid($questionid){
+        $params=array('answer_question_id'=>$questionid);
+        $query='select answer_id from answer where answer.answer_question_id= :answer_question_id and is_valid_answer=false';
+    }
 
     function isAnswerRight($QuestionID){
         $params=array('answer_question_ID' => $QuestionID);

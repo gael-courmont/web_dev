@@ -23,7 +23,8 @@ if(isset($_SESSION['loggedIn']))
                 <div class="quesFrame" >
                 <p style="font-size: 22;"><?php echo $question[1]?> ?</p>
                 
-                <?php if($inputtype=='select'){ ?>
+                <?php 
+                if($inputtype=='select'){ ?>
                     <select id=<?php echo $question[0].'[]';?> 
                     name=<?php echo $question[0].'[]';?> >
                     <?php
@@ -35,11 +36,14 @@ if(isset($_SESSION['loggedIn']))
                     <?php
 
                     }
-                    
-                    else {foreach(getAnswerQuestionID($question[0]) as $answer){?>
+                else if ($inputtype=='string'){ ?>
+                    <input type='string' name=<?php echo $question[0].'[]';?> value="">
+                <?php 
+                } 
+                else {foreach(getAnswerQuestionID($question[0]) as $answer){?>
                     <input type=<?php echo $inputtype;?> name=<?php echo $question[0].'[]';?>
-                    value=<?php if($inputtype=='string'){} else{echo $answer[0];}?> > 
-                    <?php if($inputtype!='string'){ echo $answer[1]; }?><br>
+                    value=<?php echo $answer[0];?> > 
+                    <?php  echo $answer[1]; ?><br>
                     <?php }?>                      
                     <?php } ?>
                 </div>
