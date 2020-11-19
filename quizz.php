@@ -1,3 +1,4 @@
+
 <?php 
 if(isset($_SESSION['loggedIn']))
     {
@@ -49,7 +50,11 @@ if(isset($_SESSION['loggedIn']))
                 
                 <?php } ?>
                     <input type="Submit" value="Submit" class="submitBtn">
-                </form>       
+                </form>
+
+
+
+        
                 </div>
     </body>
 

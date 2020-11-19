@@ -1,5 +1,5 @@
 <?php
-
+    $user=getUserByName($_SESSION["fname"],$_SESSION["lname"]);
     $QuizzName=$_GET['quizz'];
     $quizzid=$_GET['quizzId'];
     $questiondata=getQuestionByQuizzId($quizzid);
@@ -8,7 +8,11 @@
     $Nombre_reponse=0;
     $TextAnswer;
     $answer_number=0;
+    $answer_id;
+    $user_id=$user[0];
+    $user_answer_date=(date("d-m-y"));
 ?>
+
 
 
 
@@ -30,22 +34,31 @@
                     if (is_numeric($clientanswer)==FALSE){
                         $good_answer=$good_answer;
                         if ($clientanswer==getAnswernamebyid($good_answer)[0][0]){
+                            //enregistrer client answer
                             $TextAnswer='true';
                             $compteurBonneRep++;
                         break;
                         }
                         else{
+                            //ajouter rep a bdd
                             $TextAnswer='false';
                         }
                     }
-                    elseif ($good_answer==$clientanswer){
+                    else if ($good_answer==$clientanswer){
+                        $answer_id=$answer;
                         $TextAnswer='true';
                         $compteurBonneRep++;
+                        addUserAnswer($user_id,$answer_id,$user_answer_date);
+                        echo("question saved");
                         break;
                     }
                     else{
+                        $answer_id=$answer;
+                        addUserAnswer($user_id,$answer_id,$user_answer_date);
+                        echo("question saved");
                         $TextAnswer='false';
-                    }}
+                    }
+                }
                 echo ('Your answer number '.$answer_number." is ".$TextAnswer);                
                 }
                 $answer_number=0;

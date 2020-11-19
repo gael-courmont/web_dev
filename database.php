@@ -1,6 +1,4 @@
 <?php
-    global $bdd;
-    $bdd=new PDO('mysql:hoost=localhost;dbname=quizzdb','root');
     function getAllQuizz(){
         $query ='select * from quizz';
         return executeQuery($query,null);
@@ -44,6 +42,10 @@
         $query='select answer_id from answer where answer.is_valid_answer=1 and answer.answer_question_id= :answer_question_ID';
         return executeQuery($query,$params);
         
+    }
+    function addUserAnswer($user_id,$answerid,$answer_date){
+        $params=array('user_id'=>$user_id,'answer_id'=>$answerid,'user_answer_date'=>$answer_date);
+        $query='insert into user_answer(user_id,answer_id,user_answer_date) VALUES (:user_id, :answer_id, :user_answer_date)';
     }
 
     function executeQuery($query,$params){

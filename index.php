@@ -29,6 +29,7 @@
     ?>
     
     <DOCTYPE=HMTML>
+    <meta charset="utf-8">
     <html>
         <?php
         include "header.php";
