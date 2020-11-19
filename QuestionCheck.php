@@ -9,7 +9,7 @@
     $TextAnswer;
     $answer_number=0;
     $answer_id;
-    $user_id=$user[0];
+    $user_id=$user[0][0];
     $user_answer_date=(date("d-m-y"));
 ?>
 
@@ -34,28 +34,29 @@
                     if (is_numeric($clientanswer)==FALSE){
                         $good_answer=$good_answer;
                         if ($clientanswer==getAnswernamebyid($good_answer)[0][0]){
-                            //enregistrer client answer
+                            //addUserAnswer($user_id,$good_answer,$user_answer_date);
                             $TextAnswer='true';
                             $compteurBonneRep++;
                         break;
                         }
                         else{
                             //ajouter rep a bdd
+                            addAnswerByQuestID($question['question_id'],$clientanswer,0);
+                            $answer_id=getansweridbyText($clientanswer)[0][0];
+                            addUserAnswer($user_id,$answer_id,$user_answer_date);
                             $TextAnswer='false';
                         }
                     }
                     else if ($good_answer==$clientanswer){
-                        $answer_id=$answer;
+                        $answer_id=$clientanswer;
                         $TextAnswer='true';
                         $compteurBonneRep++;
-                        addUserAnswer($user_id,$answer_id,$user_answer_date);
-                        echo("question saved");
+                        //addUserAnswer($user_id,$answer_id,$user_answer_date);
                         break;
                     }
                     else{
-                        $answer_id=$answer;
-                        addUserAnswer($user_id,$answer_id,$user_answer_date);
-                        echo("question saved");
+                        $answer_id=$clientanswer;
+                        //addUserAnswer($user_id,$answer_id,$user_answer_date);
                         $TextAnswer='false';
                     }
                 }

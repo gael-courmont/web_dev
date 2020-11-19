@@ -32,9 +32,10 @@
         return executeQuery($query,$params);
         
     }
-    function getFalseAnswerbyquestionid($questionid){
-        $params=array('answer_question_id'=>$questionid);
-        $query='select answer_id from answer where answer.answer_question_id= :answer_question_id and is_valid_answer=false';
+    function getansweridbyText($answer_text){
+        $params=array('answer_text'=>$answer_text);
+        $query='select answer_id from answer where answer.answer_text=:answer_text';
+        return executeQuery($query,$params);
     }
 
     function isAnswerRight($QuestionID){
@@ -46,6 +47,13 @@
     function addUserAnswer($user_id,$answerid,$answer_date){
         $params=array('user_id'=>$user_id,'answer_id'=>$answerid,'user_answer_date'=>$answer_date);
         $query='insert into user_answer(user_id,answer_id,user_answer_date) VALUES (:user_id, :answer_id, :user_answer_date)';
+        return executeQuery($query,$params);
+    }
+
+    function addAnswerByQuestID($question_id,$answer_text,$is_valid_answer){
+        $params=array('question_id'=>$question_id,'answer_text'=>$answer_text,'is_valid_answer'=>$is_valid_answer);
+        $query='insert into answer(answer_text,is_valid_answer,answer_question_id) VALUES (:answer_text, :is_valid_answer, :question_id)';
+        return executeQuery($query,$params);
     }
 
     function executeQuery($query,$params){
