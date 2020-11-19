@@ -1,45 +1,60 @@
 <?php 
-    include 'header.php';
-    $QuizzName=$_GET['quizz'];
-    $quizz=getQuizzByName($QuizzName);
-    $questiondata=getQuestionByQuizzId($quizz[0][0]);
+if(isset($_SESSION['loggedIn']))
+    {
+        $QuizzId=$_GET['quizzId'];
+        $QuizzName=$_GET['quizzName'];
+        $questiondata=getQuestionByQuizzId($QuizzId);
 
-?>
+    ?>
 
 
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Geoquizz</title>
-        <link rel="stylesheet" href="main.css" />
-        <link rel="stylesheet" href="common.css" />
-    </head>
     <body>
-            <div class="header">
-                <h1 id="title"> Sujet:<?php echo $quizz[0][1]?></h1>
-            </div>
+        <div class="header">
+            <h1 id="title"> Sujet:<?php echo $QuizzName?></h1>
+        </div>
 
-            <div>
-                <form action="QuestionCheck.php?quizz=<?php echo $quizz[0][1]?>"  method = "POST">
-                    <?php foreach($questiondata as $question){?>
-                    <?php $inputtype=$question[3];?>
-                        <div class="quesFrame" >
-                            <p style="font-size: 22;"><?php echo $question[1]?> ?</p>
-                                <?php foreach(getAnswerQuestionID($question[0]) as $answer){?>
-                                    <input type=<?php echo $inputtype;?> name=<?php echo $question[0]?> value=<?php if($inputtype=='string'){} else{echo $answer[0];}?> > <?php if($inputtype!='string'){ echo $answer[1]; }?><br>
-                                <?php }?>
-                        
-                        </div>                      
+        <div>
+            <form action="index.php?page=QuestionCheck&quizz=
+            <?php echo $QuizzName?>&quizzId=
+            <?php echo $QuizzId?>"  method = "POST">
+                <?php foreach($questiondata as $question){?>
+                <?php $inputtype=$question[3];?>
+                <div class="quesFrame" >
+                <p style="font-size: 22;"><?php echo $question[1]?> ?</p>
+                
+                <?php 
+                if($inputtype=='select'){ ?>
+                    <select id=<?php echo $question[0].'[]';?> 
+                    name=<?php echo $question[0].'[]';?> >
+                    <?php
+                    foreach(getAnswerQuestionID($question[0]) as $answer){?>
+                        <option value=<?php echo $answer[0];?> > <?php echo $answer[1];?>
+                    </option>
                     <?php }?>
+                    </select>
+                    <?php
+
+                    }
+                else if ($inputtype=='string'){ ?>
+                    <input type='string' name=<?php echo $question[0].'[]';?> value="">
+                <?php 
+                } 
+                else {foreach(getAnswerQuestionID($question[0]) as $answer){?>
+                    <input type=<?php echo $inputtype;?> name=<?php echo $question[0].'[]';?>
+                    value=<?php echo $answer[0];?> > 
+                    <?php  echo $answer[1]; ?><br>
+                    <?php }?>                      
+                    <?php } ?>
+                </div>
+                
+                <?php } ?>
                     <input type="Submit" value="Submit" class="submitBtn">
-                </form>
+                </form>       
+                </div>
+    </body>
 
-
-
-      
-            </div>
-
-        </body>
-    <?php include 'Footer.php'?>
-</html>
+<?php }
+else {
+    header ('Location: index.php?page=login');
+}
+?>

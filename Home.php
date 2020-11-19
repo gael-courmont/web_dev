@@ -1,32 +1,29 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <title>Geoquizz</title>
-        <link rel="stylesheet" href="main.css" />
-        <link rel="stylesheet" href="common.css" />
-    </head>
-    <?php include 'header.php'?>
-    <body style= "background-color: grey"  >
 
-            <section>
-                <aside>
-                
-                    <h1> 
-                        <font size="+3">Qu'est ce que GéoQuizzz ? </font>
-                    
-                    </h1>
+    <body style= "background-color: grey" >
 
-                    <font size="+2">Bienvenue sur GéoQuizzz cette page de quiz créée par des étudiants brillant de l'ISEN Lille en 2019. <br>
-                          Sur cette page vous retrouverez des questions sur la géographie nottamment les capitales et bien d'autres surprises.
-                    </font>
 
-                </aside>
+        <div class="container">
+            <div class="leftNote">
+                <img style="height:250;width:500;" src="../images/download.jpg">
+
                 <h1> 
-                    <font size="+3">Il est maintenant l'heure de choisir votre quizz préféré.  </font>
-
+                    <p>Il est maintenant l'heure de choisir<br>votre quizz préféré.  </p>
                 </h1>
-            </section>
-        
-        </body>
-    <?php include 'Footer.php'?>
+            </div>
+
+            <div class="rightNote">
+                <h1> 
+                    <p>Qu'est ce que GéoQuizzz ? </p>
+                </h1>
+                <p>Bienvenue sur GéoQuizzz cette page de quiz créée par des étudiants
+                 brillant de l'ISEN Lille en 2019. <br>
+                      Sur cette page vous retrouverez des questions sur la géographie 
+                      nottamment les capitales et bien d'autres surprises.
+                </p>
+            </div>
+
+        </div>
+
+    </body>
 </html>
