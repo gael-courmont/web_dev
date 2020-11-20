@@ -10,7 +10,7 @@
 ?>
 <body >
     <div >
-        <h1>voici vos résultat:</h1>
+        <h1>here are your result:</h1>
     </div>
     <?php foreach($quizzDone as $quizz){
         $goodAnswerUser=getGoodAnswerbyUserIDandquizz($user_id,$quizz[0]);
@@ -18,9 +18,8 @@
             <div>
                 <p1>Quizz: <?php echo $quizz[1]?> </p1>
                 </br>
-                <p1>Résultat: <?php echo (count($goodAnswerUser));?> / <?php echo(count($totalGoodAnswer));?></p1>
-                <p1> supprimer le quizz</p1>
-                <form action="index.php?page=resumer" method = "POST">
+                <p1>Résul: <?php echo (count($goodAnswerUser));?> / <?php echo(count($totalGoodAnswer));?></p1>
+                <form action="index.php?page=personalresult" method = "POST">
                     <input type="hidden" name="delete" value=<?php echo ($quizz[0]);?> required>
                     <input type="submit" value="Delete answer">
                 </form>

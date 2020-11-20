@@ -10,7 +10,7 @@ if(isset($_SESSION['loggedIn']))
         foreach($quizzdone as $quizzDoneName){
             if($quizzDoneName[0]==$QuizzName){
 
-                header('Location: index.php?page=resumer&quizz='.$QuizzName);
+                header('Location: index.php?page=personalresult');
             }    
         }
         ?>

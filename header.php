@@ -47,8 +47,8 @@
                 </a>
         </div>
     <div class="menuCategory">
-        <a href="index.php?page=resumer" >
-            Resumer
+        <a href="index.php?page=personalresult" >
+            Your Result
         </a>
     </div>
 <?php } ?>
