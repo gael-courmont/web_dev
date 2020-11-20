@@ -15,6 +15,7 @@
                 <p1>Quizz: <?php echo $quizz[1]?> </p1>
                 </br>
                 <p1>Résultat: <?php echo (count($goodAnswerUser));?> / <?php echo(count($totalGoodAnswer));?></p1>
+                <p1> supprimer le quizz</p1>
             </div>
     <?php } ?>
 </body>
