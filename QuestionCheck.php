@@ -34,7 +34,7 @@
                     if (is_numeric($clientanswer)==FALSE){
                         $good_answer=$good_answer;
                         if ($clientanswer==getAnswernamebyid($good_answer)[0][0]){
-                            //addUserAnswer($user_id,$good_answer,$user_answer_date);
+                            addUserAnswer($user_id,$good_answer,$user_answer_date);
                             $TextAnswer='true';
                             $compteurBonneRep++;
                         break;
@@ -51,12 +51,12 @@
                         $answer_id=$clientanswer;
                         $TextAnswer='true';
                         $compteurBonneRep++;
-                        //addUserAnswer($user_id,$answer_id,$user_answer_date);
+                        addUserAnswer($user_id,$answer_id,$user_answer_date);
                         break;
                     }
                     else{
                         $answer_id=$clientanswer;
-                        //addUserAnswer($user_id,$answer_id,$user_answer_date);
+                        addUserAnswer($user_id,$answer_id,$user_answer_date);
                         $TextAnswer='false';
                     }
                 }

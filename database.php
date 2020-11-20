@@ -55,6 +55,33 @@
         $query='insert into answer(answer_text,is_valid_answer,answer_question_id) VALUES (:answer_text, :is_valid_answer, :question_id)';
         return executeQuery($query,$params);
     }
+    function getUserAnswerbyAnsweridclientid($user_id,$answer_id){
+        $params=array('user_id'=>$user_id,'answer_id'=>$answer_id);
+        $query='select * from user_answer where answer_id=:answer_id and user_id=:user_id';
+        return executeQuery($query,$params);
+    }
+
+    function getQuizzbyUseranswerid($user_answer_id){
+        $params=array('user_answer_id'=>$user_answer_id);
+        $query='select quizz_name,quizz_id FROM (((answer inner join user_answer on answer.answer_id=user_answer.answer_id ) inner join question on question.question_id=answer.answer_question_id) inner join quizz on question.question_quizz_id=quizz.quizz_id) where user_answer.user_id=:user_answer_id group by quizz_name';
+        return executeQuery($query,$params); 
+    }
+    function getGoodAnswerbyUserIDandquizz($user_id,$quizz_id){
+        $params=array('user_id'=>$user_id,'quizz_id'=>$quizz_id);
+        $query='select * from (answer inner join user_answer on answer.answer_id=user_answer.answer_id) inner join question on question.question_id=answer.answer_question_id where answer.is_valid_answer=1 and user_answer.user_id=:user_id and question.question_quizz_id=:quizz_id group by answer.answer_id ';
+        return executeQuery($query,$params);
+    }
+    function getAllQuizzDone($user_id){
+        $params=array('user_id'=>$user_id);
+        $query='select quizz_id,quizz_name from (((user_answer inner join answer on user_answer.answer_id=answer.answer_id) inner join question on question.question_id=answer.answer_question_id) inner join quizz on quizz.quizz_id=question.question_quizz_id) where user_answer.user_id=:user_id group by quizz.quizz_id';
+        return executeQuery($query,$params);
+    }
+    function getAllGoodAnswerByQuizzId($quizz_id){
+        $params=array('quizz_id'=>$quizz_id);
+        $query='select answer_text,question_title from (answer inner join question on answer.answer_question_id=question.question_id) inner join quizz on question.question_quizz_id=quizz.quizz_id where quizz_id=:quizz_id and is_valid_answer=1';
+        return executeQuery($query,$params);
+    }
+    
 
     function executeQuery($query,$params){
         $bdd=$GLOBALS['bdd'];
