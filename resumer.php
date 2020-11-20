@@ -1,6 +1,10 @@
 <?php
     $user=getUserByName($_SESSION['fname'],$_SESSION['lname']);
     $user_id=$user[0][0];
+    if(isset($_POST['delete'])){
+        $quizz_id_delete=$_POST['delete'];
+        deleteUserAnswerByQuizzIdandUserId($quizz_id_delete,$user_id);
+    }
     $quizzDone=getAllQuizzDone($user_id);
     //$goodAnswer=getGoodAnswerbyUserIDandquizz($user_id,$quizz_id);
 ?>
@@ -16,6 +20,10 @@
                 </br>
                 <p1>Résultat: <?php echo (count($goodAnswerUser));?> / <?php echo(count($totalGoodAnswer));?></p1>
                 <p1> supprimer le quizz</p1>
+                <form action="index.php?page=resumer" method = "POST">
+                    <input type="hidden" name="delete" value=<?php echo ($quizz[0]);?> required>
+                    <input type="submit" value="Delete answer">
+                </form>
             </div>
     <?php } ?>
 </body>

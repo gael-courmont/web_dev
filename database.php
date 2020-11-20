@@ -81,7 +81,11 @@
         $query='select answer_text,question_title from (answer inner join question on answer.answer_question_id=question.question_id) inner join quizz on question.question_quizz_id=quizz.quizz_id where quizz_id=:quizz_id and is_valid_answer=1';
         return executeQuery($query,$params);
     }
-    
+    function deleteUserAnswerByQuizzIdandUserId($quizz_id,$user_id){
+        $params=array('quizz_id'=>$quizz_id,'user_id'=>$user_id);
+        $query='delete user_answer from (user_answer inner join answer on answer.answer_id=user_answer.answer_id) inner join question on question.question_id=answer.answer_question_id where question.question_quizz_id=:quizz_id and user_id=:user_id';
+        return executeQuery($query,$params);
+    }
 
     function executeQuery($query,$params){
         $bdd=$GLOBALS['bdd'];
