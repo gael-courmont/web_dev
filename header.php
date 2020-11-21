@@ -51,6 +51,11 @@
             Your Result
         </a>
     </div>
+    <div class="menuCategory">
+        <a href="index.php?page=GlobalResult" >
+            Global Result
+        </a>
+    </div>
 <?php } ?>
 
 <?php if (isset($_SESSION['loggedIn'])){ ?>
