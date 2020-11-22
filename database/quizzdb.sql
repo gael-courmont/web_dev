@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 08, 2020 at 08:46 PM
+-- Generation Time: Nov 22, 2020 at 09:28 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `is_valid_answer` tinyint(1) NOT NULL COMMENT 'valid answer for question',
   `answer_question_id` int(11) NOT NULL COMMENT 'question related',
   PRIMARY KEY (`answer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `answer`
@@ -61,7 +61,20 @@ INSERT INTO `answer` (`answer_id`, `answer_text`, `is_valid_answer`, `answer_que
 (19, 'Brian Johnson', 0, 7),
 (20, 'Stevie young', 0, 7),
 (21, 'Anthony Kiedis', 1, 7),
-(22, 'chad smith', 1, 7);
+(22, 'chad smith', 1, 7),
+(23, ' ', 0, 5),
+(24, 'oui oui', 0, 5),
+(25, 'la mere a wakz', 0, 5),
+(26, 'la mere a wakz', 0, 5),
+(27, 'la mere a wakz', 0, 5),
+(28, 'oui oui', 0, 5),
+(29, 'oui oui', 0, 5),
+(30, 'oui oui', 0, 5),
+(31, 'oui oui', 0, 5),
+(32, 'oui oui', 0, 5),
+(33, 'oui oui', 0, 5),
+(34, 'jimmy hendrix', 0, 5),
+(35, 'kimmy page', 0, 5);
 
 -- --------------------------------------------------------
 
@@ -129,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `user_birthdate` datetime DEFAULT NULL,
   `user_password` varchar(255) NOT NULL COMMENT 'User Password',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
@@ -137,7 +150,11 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`user_id`, `user_last_name`, `user_first_name`, `user_adress`, `user_phone`, `user_birthdate`, `user_password`) VALUES
 (7, 'Courmont', 'Gael', NULL, NULL, NULL, 'les3'),
-(18, 'Doe', 'John', NULL, NULL, NULL, '***');
+(18, 'Doe', 'John', NULL, NULL, NULL, '***'),
+(19, 'hermant', 'jean', NULL, NULL, NULL, 'brioche2chocolat'),
+(20, 'deleval', 'elise', NULL, NULL, NULL, 'isen'),
+(21, 'hobeiter', 'louis', NULL, NULL, NULL, 'isen'),
+(22, 'kaiss', 'mohamad', NULL, NULL, NULL, 'isen');
 
 -- --------------------------------------------------------
 
@@ -154,7 +171,51 @@ CREATE TABLE IF NOT EXISTS `user_answer` (
   PRIMARY KEY (`user_answer_id`),
   KEY `user_id_fk` (`user_id`),
   KEY `answer_id_fk` (`answer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=114 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user_answer`
+--
+
+INSERT INTO `user_answer` (`user_answer_id`, `user_id`, `answer_id`, `user_answer_date`) VALUES
+(64, 19, 2, '2020-11-19 23:00:00'),
+(65, 19, 6, '2020-11-19 23:00:00'),
+(66, 19, 9, '2020-11-19 23:00:00'),
+(79, 7, 3, '2020-11-19 23:00:00'),
+(80, 7, 7, '2020-11-19 23:00:00'),
+(81, 7, 9, '2020-11-19 23:00:00'),
+(82, 7, 12, '2022-11-19 23:00:00'),
+(83, 7, 14, '2022-11-19 23:00:00'),
+(84, 7, 16, '2022-11-19 23:00:00'),
+(85, 7, 21, '2022-11-19 23:00:00'),
+(86, 20, 1, '2022-11-19 23:00:00'),
+(87, 20, 6, '2022-11-19 23:00:00'),
+(88, 20, 9, '2022-11-19 23:00:00'),
+(89, 20, 13, '2022-11-19 23:00:00'),
+(90, 20, 14, '2022-11-19 23:00:00'),
+(91, 20, 17, '2022-11-19 23:00:00'),
+(92, 20, 21, '2022-11-19 23:00:00'),
+(93, 20, 22, '2022-11-19 23:00:00'),
+(94, 20, 22, '2022-11-19 23:00:00'),
+(95, 21, 3, '2022-11-19 23:00:00'),
+(96, 21, 7, '2022-11-19 23:00:00'),
+(97, 21, 8, '2022-11-19 23:00:00'),
+(98, 21, 12, '2022-11-19 23:00:00'),
+(99, 21, 34, '2022-11-19 23:00:00'),
+(100, 21, 17, '2022-11-19 23:00:00'),
+(101, 21, 20, '2022-11-19 23:00:00'),
+(102, 21, 20, '2022-11-19 23:00:00'),
+(103, 21, 21, '2022-11-19 23:00:00'),
+(104, 22, 1, '2022-11-19 23:00:00'),
+(105, 22, 7, '2022-11-19 23:00:00'),
+(106, 22, 9, '2022-11-19 23:00:00'),
+(107, 22, 11, '2022-11-19 23:00:00'),
+(108, 22, 35, '2022-11-19 23:00:00'),
+(109, 22, 18, '2022-11-19 23:00:00'),
+(110, 22, 19, '2022-11-19 23:00:00'),
+(111, 22, 19, '2022-11-19 23:00:00'),
+(112, 22, 22, '2022-11-19 23:00:00'),
+(113, 22, 22, '2022-11-19 23:00:00');
 
 --
 -- Constraints for dumped tables
