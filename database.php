@@ -86,7 +86,11 @@
         $query='delete user_answer from (user_answer inner join answer on answer.answer_id=user_answer.answer_id) inner join question on question.question_id=answer.answer_question_id where question.question_quizz_id=:quizz_id and user_id=:user_id';
         return executeQuery($query,$params);
     }
-
+    function getAllUserForQuizzid($quizz_id){
+        $params=array('quizz_id'=>$quizz_id);
+        $query ='select user.user_id,user_first_name,user_last_name FROM (((user inner join user_answer on user_answer.user_id=user.user_id) inner join answer on answer.answer_id=user_answer.answer_id) inner join question on question.question_id=answer.answer_question_id ) inner join quizz on quizz.quizz_id=question_quizz_id where quizz.quizz_id=:quizz_id group by user.user_id';
+        return executeQuery($query,$params);
+    }
     function executeQuery($query,$params){
         $bdd=$GLOBALS['bdd'];
         //connect to our quizz db
