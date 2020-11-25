@@ -27,7 +27,7 @@
     }
     else{?>
     <body>
-        <div class="container card">
+        <div class="container card2">
             <form action="index.php?page=GlobalResult" method="POST">
                 <label for="quizz select">Choose a quizz</label>
                     <select name="quizz_id" id="quizz_id">
