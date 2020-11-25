@@ -28,20 +28,9 @@ if(isset($_SESSION['loggedIn']))
                         <div class="quesFrame" >
                         <p style="font-size: 22;"><?php echo $question[1]?> ?</p>
                         
-                        <?php 
-                        if($inputtype=='select'){ ?>
-                            <select id=<?php echo $question[0].'[]';?> 
-                            name=<?php echo $question[0].'[]';?> >
                             <?php
-                            foreach(getAnswerQuestionID($question[0]) as $answer){?>
-                                <option value=<?php echo $answer[0];?> > <?php echo $answer[1];?>
-                            </option>
-                            <?php }?>
-                            </select>
-                            <?php
-
-                            }
-                        else if ($inputtype=='string'){ ?>
+                            
+                        if ($inputtype=='string'){ ?>
                             <input type='string' name=<?php echo $question[0].'[]';?> value="">
                         <?php 
                         } 

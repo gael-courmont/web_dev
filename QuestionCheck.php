@@ -70,7 +70,7 @@
         <?php }?>
         </br>
         <h1>
-        you got <?php echo $compteurBonneRep?> out of <?php echo $Nombre_reponse ?>
+        you got <?php echo $compteurBonneRep?> out of <?php echo sizeof($questiondata) ?>
         </h1>
     </div>
     </body>
