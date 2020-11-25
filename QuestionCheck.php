@@ -18,6 +18,7 @@
 
 
     <body>
+    <div class="container results2">
         <h1>Your answer
 
         </h1>
@@ -71,4 +72,5 @@
         <h1>
         you got <?php echo $compteurBonneRep?> out of <?php echo $Nombre_reponse ?>
         </h1>
+    </div>
     </body>

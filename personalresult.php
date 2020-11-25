@@ -9,6 +9,7 @@
     //$goodAnswer=getGoodAnswerbyUserIDandquizz($user_id,$quizz_id);
 ?>
 <body >
+<div class="container results">
     <div >
         <h1>here are your result:</h1>
     </div>
@@ -25,4 +26,5 @@
                 </form>
             </div>
     <?php } ?>
+</div>
 </body>

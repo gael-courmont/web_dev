@@ -231,3 +231,14 @@ section {
 .welcome {
     margin:150px;
 }
+
+.results{
+    background:rgb(175, 131, 131);
+    color:white;
+    padding:20px;
+}
+.results2{
+    background:rgb(98, 91, 91);
+    color:white;
+    padding:20px;
+}
