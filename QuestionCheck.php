@@ -25,7 +25,7 @@
             <p1 >
                 <?php echo $question['question_title'].' ';?>:
                 <?php 
-                    $answer=isAnswerRight($question['question_id']);
+                    $answer=isAnswerRight($question['question_id']); // array that has correct answers
                     foreach( ($_POST[$question['question_id']]) as $clientanswer){
                     $answer_number++;
                     $Nombre_reponse++;

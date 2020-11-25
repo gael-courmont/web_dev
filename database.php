@@ -26,6 +26,10 @@
         $query='select * from answer where answer.answer_question_id= :answer_question_id';
         return executeQuery($query,$params);
     }
+
+
+
+    
     function getAnswernamebyid($answerid){
         $params=array('answer_id' => $answerid);
         $query='select answer_text from answer where answer.answer_id= :answer_id';

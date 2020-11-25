@@ -11,15 +11,13 @@
         $numbergoodAnswer=count(getAllGoodAnswerByQuizzId($quizz_id));
         ?>
         <body>
-            <dic class="container">
+            <div class="container">
             <?php
             foreach ($user_list as $user){
                 $user_score=count(getGoodAnswerbyUserIDandquizz($user[0],$quizz_id));?>
                 <div class="card" >
-                    <div class="container">
                         <p1><?php echo($user_score);?> / <?php echo($numbergoodAnswer);?></p1>
                         <h4></b><?php echo($user[1]); ?> <?php echo($user[2]); ?></br><h4>
-                    </div>
                 </div>   
             <?php }
             ?>
