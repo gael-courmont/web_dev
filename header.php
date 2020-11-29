@@ -1,6 +1,5 @@
 
 
-
 <head>
         <title>Geoquizz</title>
         <link rel="stylesheet" href="main.css" />
@@ -33,10 +32,8 @@
         <?php
             foreach(getAllQuizz() as $quizzheader){
                 ?>
-
-            <a href="index.php?page=quizz&quizzId=<?php 
-                echo $quizzheader['quizz_id'];?>&quizzName=
-                <?php echo $quizzheader['quizz_name'];?>">
+            <a href="index.php?page=quizz&quizzId=<?php echo $quizzheader['quizz_id'];?>
+            &quizzName=<?php echo $quizzheader['quizz_name'];?>">
                 <?php echo $quizzheader['quizz_name'];?>
                 </a>
         <?php }}?>
@@ -50,6 +47,16 @@
                 Disconnect
                 </a>
         </div>
+    <div class="menuCategory">
+        <a href="index.php?page=personalresult" >
+            Your Result
+        </a>
+    </div>
+    <div class="menuCategory">
+        <a href="index.php?page=GlobalResult" >
+            Global Result
+        </a>
+    </div>
 <?php } ?>
 
 <?php if (isset($_SESSION['loggedIn'])){ ?>
